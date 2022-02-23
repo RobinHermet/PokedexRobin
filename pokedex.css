@@ -1,0 +1,191 @@
+@font-face {
+    font-family: Pokemon;
+    src: url("./fonts/Pokemon\ Classic.ttf");
+}
+
+.pokedexHeader{
+    padding-top: 15px;
+    padding-bottom: 15px ;
+    background-color: #EEF3EE;
+    font-family: "Pokemon", "Flexo-Light",arial,sans-serif;
+    font-size: 30px;
+    border: solid 0.6mm #616161 ;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+}
+.pokedexResearch{
+    padding-top: 15px;
+    padding-left: 50px;
+    padding-bottom: 25px ;
+    background-color: #616161;
+    border: solid 0.6mm black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-family: "Pokemon","Flexo-Bold",arial,sans-serif;
+    font-size: 15px;
+    color: white;
+    text-shadow: black;
+    height: 50px;
+}
+
+.pokedexResearch img{
+    width: 23px;
+    height: 23px;
+}
+
+.pokedexResearch img:hover{
+    cursor: pointer;
+}
+
+input{
+    border-radius: 10px;
+    padding-left: 5px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 30px;
+    width: 300px;
+}
+
+.nextPrev{
+    text-align: center;
+    background-color: #EEF3EE;
+    border: solid 0.6mm #616161 ;
+    border-radius: 5px;
+}
+
+.nextPrev img{
+    width: 25px;
+    height: 25px;
+}
+
+.nextPrev img:hover{
+    cursor: pointer;
+}
+
+.pokedex{
+    background-color: #EEF3EE;
+    border: solid 0.6mm #616161;
+    border-radius: 5px;
+}
+
+.allPokemons{
+    display: grid;
+    grid-column-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+}
+
+ul{
+    list-style: none;
+}
+
+.allPokemons li figure{
+    background: #D7DBD7 ;
+    border-radius: 5px;
+    text-align: center;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.allPokemons li figure img{
+    max-width: 200px;
+    max-height: 300px;
+}
+
+
+.allPokemons li .infoPokemon{
+    padding-left: 13%;
+}
+
+.allPokemons li .infoPokemon .id {
+    font-family: "Flexo-Bold",arial,sans-serif;
+    color: #919191;
+    font-size: 80%;
+    padding-top: 2px;
+}
+
+
+.allPokemons li .infoPokemon .name {
+    font-family: "Flexo-Demi",arial,sans-serif;
+    color: #313131;
+    text-transform: none;
+    font-size: 145%;
+    margin-bottom: 5px;
+    margin-top: -10px;
+    text-transform: capitalize;
+}
+
+footer{
+    padding-top: 5px;
+    padding-left: 50px;
+    padding-bottom: 5px ;
+    background-color: #616161;
+    border: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: solid 0.6mm black;
+    border-radius: 5px;
+}
+
+.pokemonInfo{
+    grid-column: 1/1;
+    text-align: center;
+}
+
+.polytechInfo{
+    grid-column: 2/2;
+    text-align: center;
+}
+
+a{
+    cursor: pointer;
+}
+
+figure{
+    transition: all 1s ease;
+    cursor: pointer;
+}
+
+figure:hover{
+    transform:scale(1.08);
+}
+
+.moreInfo{
+    background-color: #EEF3EE;
+    border: solid 0.6mm #616161;
+    border-radius: 5px;
+    text-align: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 30%;
+    bottom: 30%;
+    z-index: 1;
+    opacity: 95%;
+    font-family: "Flexo-Bold",arial,sans-serif;
+}
+
+.moreInfo h4{
+    margin: 5px;    
+}
+
+.moreInfo img{
+    max-width: 200px;
+    max-height: 300px;
+}
+
+.moreInfo :first-child{
+    float: right;
+    width: 20px;
+    height: 20px;
+}
+
+.moreInfo :first-child:hover{
+    cursor: pointer;
+}
+
+.moreInfo h3{
+    text-transform: capitalize;
+    color: #313131;
+    font-size: 145%;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="pokedex.css"/>
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/pokeapi-js-wrapper/dist/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+</head>
+
+
+<body>
+<script>
+    const P = new Pokedex.Pokedex({ cacheImages: true });
+</script>
+<div id="app">
+    <section class="pokedexHeader">
+        <h1>Pokedex</h1>
+    </section>
+    <section class="pokedexResearch">
+        <label for="pokemonResearcher">Name Of Your Pokemon: </label><br>
+        <input type="search" name="pokemonResearcher" id="pokemonResearcher" ref="input">
+        <img v-on:click="printResearch()" src="./asset/loupe.png">
+    </section>
+
+    <section class="nextPrev">
+        <img v-on:click="prevPage()" v-if="!prevIsHidden" src="./asset/fleche-gauche.png">
+        <img v-on:click="nextPage()" v-if="!nextIsHidden" src="./asset/fleche-droite.png">
+    </section>
+
+
+    <section class="moreInfo" v-if="!isHidden"> 
+        <img v-on:click="isHidden = true" src="./asset/croix.png">
+        <h3 id="name&id">{{moreInfo.name}} #{{moreInfo.id}}</h3>
+        <h4 id="height">Height: {{moreInfo.height}}</h4>
+        <h4 id="weight">Weight: {{moreInfo.weight}}</h4>   
+        <img :src=getSrc(id)>                
+    </section>
+
+    <main class="pokedex">
+        <ul class="allPokemons">
+            <li v-for="i in info">
+                <figure v-on:click="getMore(printIndex(i))">
+                    <!-- Peut etre rajouter une balise a pour pouvoir cliquer dessus et afficher plus d'éléments-->
+                    <img :src= getSrc(printIndex(i)) >
+                </figure>
+                <div class="infoPokemon">
+                    <p class="id">#{{printIndex(i)}}</p>
+                    <h4 class="name">{{i.name}}</h4>
+                </div>
+
+            </li>           
+            
+        </ul>
+    </main>
+
+    <section class="nextPrev">
+        <img v-on:click="prevPage()" v-if="!prevIsHidden" src="./asset/fleche-gauche.png">
+        <img v-on:click="nextPage()" v-if="!nextIsHidden" src="./asset/fleche-droite.png">
+    </section>
+
+
+    <footer>
+        <div class="pokemonInfo">
+            <a href="https://www.pokemon.com/us/" target="_blank" title="Official Pokemon Website">
+                <figure>
+                    <img src="./asset/pokemonLogo.png" alt="Pokemon Logo" width="150" height="150">
+                </figure>
+            </a>
+        </div>
+        <div class="polytechInfo">
+            <a href="https://www.polytech.umontpellier.fr/" target="_blank" title="Official Polytech Montpellier Website">
+                <figure>
+                    <img src="./asset/polytech.svg" alt="Polytech Montpellier Logo" width="150" height="150">
+                </figure>
+            </a>
+        </div>
+    </footer>
+
+</div>
+
+
+<!-- Import app -->
+<script src="./scripts/main.js"></script>
+<!-- Mount app -->
+<script>
+    const mountedApp = app.mount('#app')
+</script>
+</body>
+
+</html>
